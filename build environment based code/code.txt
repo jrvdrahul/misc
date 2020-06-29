@@ -1,0 +1,41 @@
+url -> .post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`, data)
+
+
+
+
+3 file -> .env.staging  && .env.production
+
+
+NODE_PATH = ./src
+REACT_APP_API_ENDPOINT = 'https://stage-api.healthsafetoday.com'
+
+
+
+
+package .json->
+
+"scripts": {
+    "pm2dev": "pm2 start npm -- start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:staging": "env-cmd -f .env.staging react-scripts build",
+    "build:prod": "env-cmd -f .env.production react-scripts build",
+    "test": "react-scripts test",
+
+
+command ->    npm run build:prod
+
+
+
+
+2nd option-> just specify url and hit build command with url
+
+for local npm start -> add env file ->
+
+NODE_PATH=./src
+REACT_APP_API_ENDPOINT='https://stage-api.healthsafetoday.com'
+
+->REACT_APP_API_ENDPOINT='https://stage-api.healthsafetoday.com' npm run build
+
+
+npm run build REACT_APP_API_ENDPOINT='https://stage-api.healthsafetoday.com' 
